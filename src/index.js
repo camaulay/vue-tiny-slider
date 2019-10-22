@@ -1,4 +1,5 @@
 import { tns } from 'tiny-slider/src/tiny-slider';
+import addRemovedHook from 'vue-removed-hook-mixin'
 
 var VueTinySlider = {
 	eventsList: [
@@ -13,7 +14,8 @@ var VueTinySlider = {
 		'dragStart',
 		'dragMove',
 		'dragEnd'
-	],
+  ],
+  mixins: [ addRemovedHook ],
 	props: {
 		mode: {
 			type: [String],
@@ -243,9 +245,13 @@ var VueTinySlider = {
 			this.init();
 		}
 	},
-	beforeDestroy: function() {
-		if(this.slider) {
-			this.slider.destroy();
+	removed: function() {
+		if (this.slider) {
+      try {
+        this.slider.destroy();
+      } catch (e) {
+        console.warn(e)
+      }
 		}
 	},
 	methods: {

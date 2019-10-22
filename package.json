@@ -26,7 +26,8 @@
   "homepage": "https://github.com/viktorlarsson/vue-tiny-slider#readme",
   "dependencies": {
     "lodash": "^4.17.11",
-    "tiny-slider": "^2.9.2"
+    "tiny-slider": "^2.9.2",
+    "vue-removed-hook-mixin": "^0.1.1"
   },
   "devDependencies": {
     "babel-core": "^6.26.3",
